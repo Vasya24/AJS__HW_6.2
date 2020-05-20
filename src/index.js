@@ -4,12 +4,14 @@ function Character(name, type) {
     this.health = 100;
     this.attack = 10;
     this.defence = 40;
-  this.damage = (points) => {
-    this.health -= points * (1 - this.defence / 100);
-    if (this.health < 1) {
-      delete this.Character
-    }
-  }  
+}
+
+Character.prototype.damage = function(points) {
+  this.health -= points * (1 - this.defence / 100);
+  return this;
+  if (this.health < 1) {
+    delete this
+  }
 }
 
 export { Character }
